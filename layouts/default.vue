@@ -30,11 +30,15 @@
       app
     >
     <div class="d-flex justify-space-between m-menu">
-      <v-btn to="/" icon color="pink">
+      <v-btn to="/" icon color="red">
         <v-icon>
-          mdi-heart</v-icon>
+          mdi-home-outline
+        </v-icon>
       </v-btn>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <div class="d-flex">
+        <search-input />
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      </div>
     </div>
     </v-app-bar>
     <v-content>
@@ -52,6 +56,7 @@
 </template>
 
 <script>
+import SearchInput from '~/components/SearchInput.vue'
 export default {
   data () {
     return {
@@ -78,6 +83,9 @@ export default {
       rightDrawer: false,
       title: 'Vuetify.js'
     }
+  },
+  components:{
+    SearchInput,
   }
 }
 </script>

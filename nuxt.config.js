@@ -32,6 +32,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    
   ],
   /*
   ** Nuxt.js dev-modules
@@ -43,6 +44,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/axios',
   ],
   /*
   ** vuetify module configuration
