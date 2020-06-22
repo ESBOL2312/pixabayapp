@@ -1,17 +1,36 @@
 <template>
   <v-row>
-    <v-col cols="4">
-      <v-avatar size="120">
-        <img :src="image.userImageURL" :alt="image.user" />
-      </v-avatar>
-	  <h2>
-		{{image.user}}
-	  </h2>
-      {{image.views}}
-      {{image.likes}}
-      {{image.downloads}}
+    <v-col cols="4" class="text-center">
+      <div>
+        <v-avatar size="120">
+          <img :src="image.userImageURL" :alt="image.user" />
+        </v-avatar>
+        <h2>{{image.user}}</h2>
+      </div>
+      <v-chip class="ma-2" color="success">
+        <v-icon left>mdi-eye-check</v-icon>
+        {{image.views}}
+      </v-chip>
+      <v-chip class="ma-2" color="success">
+        <v-icon left>mdi-download</v-icon>
+        {{image.downloads}}
+      </v-chip>
+      <v-chip class="ma-2" color="success">
+        <v-icon left>mdi-thumb-up</v-icon>
+        {{image.likes}}
+      </v-chip>
+      <div class="align-center d-flex">
+        <span class="font-weight-black mr-5">Tags:</span>
+        <v-chip-group column>
+          <v-chip v-for="(tag, i) in tags" :key="i">
+            {{ tag }}
+          </v-chip>
+        </v-chip-group>
+      </div>
     </v-col>
-    <v-col cols="8"></v-col>
+    <v-col cols="8">
+      <v-img :src="image.largeImageURL"></v-img>
+    </v-col>
   </v-row>
 </template>
 <script>
@@ -22,9 +41,14 @@ export default {
       id: this.$route.params.id
     };
   },
-  computed: mapGetters({
-    image: "GET_IMG_ONE"
-  }),
+  computed: {
+    image() {
+      return this.$store.getters.GET_IMG_ONE;
+    },
+    tags() {
+      return this.image.tags.split(", ");
+    }
+  },
   middleware: ["getOneImage"]
 };
 </script>

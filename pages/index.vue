@@ -4,8 +4,8 @@
       <h2>Выбор редакции</h2>
       <img-slider :slide-items="editorChoiseImages" class="mt-5 mb-5"></img-slider>
       <v-row>
-        <v-col cols="3" v-for="i in 5" :key="i">
-          <img-card></img-card>
+        <v-col cols="3" v-for="image in popularImages" :key="image.id">
+          <img-card :gallery-items="image"></img-card>
         </v-col>
       </v-row>
     </v-container>
@@ -21,8 +21,9 @@ export default {
     ImgSlider
   },
   computed: mapGetters({
-    editorChoiseImages: "GET_EDCH"
+    editorChoiseImages: "GET_EDCH",
+    popularImages: "GET_CAT"
   }),
-  middleware: ["getEditorsChoise"]
+  middleware: ["getEditorsChoise","popularImages"]
 };
 </script>

@@ -1,6 +1,7 @@
 export const state = () => ({
     bgimages: [],
-    oneImage:null
+    oneImage:null,
+    catImages:null
   })
   
 export const mutations = {
@@ -9,6 +10,9 @@ export const mutations = {
     },
     ADD_ONEIMAGE (state, payload) {
         state.oneImage = payload
+    },
+    ADD_CAT (state, payload) {
+        state.catImages = payload
     }
 }
 
@@ -18,5 +22,8 @@ export const getters = {
     },
     GET_IMG_ONE (state){
         return state.oneImage[0]
+    },
+    GET_CAT (state){
+        return state.catImages
     }
 } 
