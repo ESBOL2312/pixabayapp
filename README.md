@@ -1,4 +1,4 @@
-# appimg
+# pixabay api app
 
 ## Build Setup
 
