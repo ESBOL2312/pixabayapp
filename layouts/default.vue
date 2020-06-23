@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="default-l">
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -24,7 +24,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar fade-img-on-scroll="true" src="https://pixabay.com/get/53e3d4434d5aa414f6da8c7dda7936791537dcec56506c48702679dc9e45cc50b1_1280.jpg"
+    <v-app-bar :src="randomImageUrl.largeImageURL"
       :clipped-right="clipped"
       fixed
       app
@@ -36,7 +36,7 @@
       </v-btn>
       <div class="d-flex">
         <search-input />
-        <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+        <v-app-bar-nav-icon  @click.stop="drawer = !drawer" />
       </div>
     </div>
     </v-app-bar>
@@ -56,9 +56,11 @@
 
 <script>
 import SearchInput from '~/components/SearchInput.vue'
+import { mapGetters } from "vuex";
 export default {
   data () {
     return {
+      tr:true,
       sDialog:false,
       clipped: false,
       drawer: false,
@@ -84,13 +86,28 @@ export default {
       title: 'Vuetify.js'
     }
   },
+  computed: mapGetters({
+    randomImageUrl: "GET_R_BACK",
+  }),
   components:{
     SearchInput,
-  }
+  },
+  middleware:['getAppBarImg']
 }
 </script>
-<style>
+<style lang="scss">
 .m-menu{
   width:100%;
+}
+.default-l{
+  .v-image__image{
+    background-position:top !important;
+  }
+  .v-toolbar__image{
+    opacity: 0.7 !important;
+  }
+}
+#app {
+  background-color: #2c3e50;
 }
 </style>

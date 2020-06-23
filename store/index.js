@@ -1,7 +1,8 @@
 export const state = () => ({
     bgimages: [],
     oneImage:null,
-    catImages:null
+    catImages:null,
+    randBack:null,
   })
   
 export const mutations = {
@@ -13,7 +14,14 @@ export const mutations = {
     },
     ADD_CAT (state, payload) {
         state.catImages = payload
-    }
+    },
+    RAND_BACK(state, payload) {
+        let i = 0
+        if(payload.length>0){
+            i = Math.floor(Math.random() * Math.floor(payload.length))
+        }
+        state.randBack = payload[i]
+    },
 }
 
 export const getters = {
@@ -25,5 +33,8 @@ export const getters = {
     },
     GET_CAT (state){
         return state.catImages
+    },
+    GET_R_BACK(state){
+        return state.randBack
     }
 } 
