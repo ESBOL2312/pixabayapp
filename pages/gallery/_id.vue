@@ -2,8 +2,8 @@
   <v-row>
     <v-col cols="4" class="text-center">
       <div>
-        <v-avatar size="120">
-          <img :src="image.userImageURL" :alt="image.user" />
+        <v-avatar size="120" class="elevation-5">
+          <img  :src="image.userImageURL" :alt="image.user" />
         </v-avatar>
         <h2>{{image.user}}</h2>
       </div>
@@ -29,7 +29,9 @@
       </div>
     </v-col>
     <v-col cols="8">
-      <v-img :src="image.largeImageURL"></v-img>
+      <v-card class="elevation-5">
+        <v-img :src="image.largeImageURL" color="red" class="rounded"></v-img>
+      </v-card>
     </v-col>
   </v-row>
 </template>

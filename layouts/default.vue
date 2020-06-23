@@ -24,16 +24,15 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar
+    <v-app-bar fade-img-on-scroll="true" src="https://pixabay.com/get/53e3d4434d5aa414f6da8c7dda7936791537dcec56506c48702679dc9e45cc50b1_1280.jpg"
       :clipped-right="clipped"
       fixed
       app
     >
     <div class="d-flex justify-space-between m-menu">
-      <v-btn to="/" icon color="red">
-        <v-icon>
-          mdi-home-outline
-        </v-icon>
+      <v-btn to="/" icon color="red" size="100">
+        <v-img src="/images/logo.svg" cover max-width="40">
+        </v-img>
       </v-btn>
       <div class="d-flex">
         <search-input />
@@ -60,6 +59,7 @@ import SearchInput from '~/components/SearchInput.vue'
 export default {
   data () {
     return {
+      sDialog:false,
       clipped: false,
       drawer: false,
       fixed: false,
