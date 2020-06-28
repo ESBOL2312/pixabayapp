@@ -1,6 +1,6 @@
 <template>
   <v-row class="mt-5 mb-5">
-    <v-col cols="4" class="text-center">
+    <v-col md="4" xs="1" class="text-center">
       <div class="mb-5">
         <v-avatar size="120" class="elevation-5 mb-1">
           <img  :src="image.userImageURL" :alt="image.user" />
@@ -28,8 +28,8 @@
         </v-chip-group>
       </div>
     </v-col>
-    <v-col cols="8">
-       <v-btn class="" fixed="true"  @click="back" fab  icon dark color="warning">
+    <v-col md="8" xs="1">
+       <v-btn class="" :fixed="true"  @click="back" fab  icon dark color="warning">
         <v-icon dark>mdi-arrow-left-circle-outline</v-icon>
       </v-btn>
       <v-card class="elevation-5">

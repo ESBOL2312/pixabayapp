@@ -3,6 +3,29 @@ export const state = () => ({
     oneImage:null,
     catImages:null,
     randBack:null,
+    pageRes :null,
+    categories:[
+        'backgrounds', 
+        'fashion', 
+        "nature", 
+        "science", 
+        "education", 
+        "feelings", 
+        "health", 
+        "people", 
+        "religion", 
+        "places", 
+        "animals", 
+        "industry", 
+        "computer", 
+        "food", 
+        "sports", 
+        "transportation", 
+        "travel", 
+        "buildings", 
+        "business", 
+        "music"
+    ]
   })
   
 export const mutations = {
@@ -22,6 +45,9 @@ export const mutations = {
         }
         state.randBack = payload[i]
     },
+    PAGE_RES(state,payload){
+        state.pageRes = payload
+    }
 }
 
 export const getters = {
@@ -36,5 +62,11 @@ export const getters = {
     },
     GET_R_BACK(state){
         return state.randBack
+    },
+    PAGE_R(state){
+        state.pageRes
+    },
+    GET_CATEGORIES(state){
+        return state.categories
     }
 } 
