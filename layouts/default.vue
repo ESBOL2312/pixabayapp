@@ -5,7 +5,7 @@
       v-model="drawer"
       :fixed="true"
       app
-      src="images/left-back.jpg"
+      src="/images/left-back.jpg"
       style="max-height:100%"
     >
     <v-divider></v-divider>
@@ -20,12 +20,13 @@
           <v-list-item
             v-for="(item, i) in categories"
             :key="i"
+            :to="'/categories/'+item.text"
           >
-            <!-- <v-list-item-icon>
-              <v-icon></v-icon>
-            </v-list-item-icon> -->
+            <v-list-item-avatar>
+              <v-img :src="item.bgLink"></v-img>
+            </v-list-item-avatar>
             <v-list-item-content>
-              <v-list-item-title v-text="item">
+              <v-list-item-title class="" v-text="item.text">
               </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
@@ -65,6 +66,9 @@
         <v-img contain max-width="80" src="images/pixabayLogo.svg">
         </v-img>
       </a>
+      <nuxt-link to="image">
+        toto
+      </nuxt-link>
     </v-footer>
   </v-app>
 </template>
@@ -108,6 +112,8 @@ export default {
   }),
   components:{
     SearchInput,
+  },
+  methods:{
   },
   middleware:['getAppBarImg']
 }

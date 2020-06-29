@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-hover v-slot:default="{hover}">
-    <v-card  :to="'gallery/'+galleryItems.id"  :elevation="hover ? 16 : 1"
+    <v-card  :to="'/gallery/'+galleryItems.id"  :elevation="hover ? 16 : 1"
     class="mx-auto"
     max-width="320" loading="true">
     <v-img
